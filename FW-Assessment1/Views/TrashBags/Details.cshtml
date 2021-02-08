@@ -1,0 +1,60 @@
+﻿@model FWAssessment1.Models.TrashBag
+@{
+    String name = Model.Brand + " - " + Model.Volume + "L" + (Model.Compostable ? " - Compostable" : "");
+    ViewBag.Title = "Details - " + name;
+}
+
+<h1 class="text-center">@name</h1>
+
+<a class="btn btn-primary mb-4" href="@Url.Action("Index", "TrashBags")"><i class="fa fa-arrow-left mr-2"></i>Back to Bags List</a>
+
+<h2>Product ID: <span class="font-weight-light">@Model.Id</span></h2>
+<h2>Brand: <span class="font-weight-light">@Model.Brand</span></h2>
+<h2>Volume: <span class="font-weight-light">@Model.Volume L</span></h2>
+<h2>Compostable: <span class="font-weight-light">@(Model.Compostable ? "Yes" : "No")</span></h2>
+
+<!-- Button trigger modal -->
+<div class="mb-4">
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addModal">
+        Edit
+    </button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @using (Html.BeginForm("Update", "TrashBags", FormMethod.Post))
+            {
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addModalLabel">Edit Trash Bag</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="id" value="@Model.Id">
+
+                    <div class="form-group">
+                        <label for="brand">Brand</label>
+                        <input type="text" class="form-control" id="brand" name="brand" placeholder="Tesco" value="@Model.Brand" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="volume">Volume (liters)</label>
+                        <input type="number" min="1" step="1" class="form-control" name="volume" id="volume" placeholder="10" value="@Model.Volume" required>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="compostable" name="compostable" @(Model.Compostable ? "checked" : "")>
+                        <label class="form-check-label" for="compostable">
+                            Compostable
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" value="Save" />
+                </div>
+            }
+        </div>
+    </div>
+</div>
