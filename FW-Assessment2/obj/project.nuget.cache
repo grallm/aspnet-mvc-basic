@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "axxdE1FTq+9iIqMuNrVd3kW9mcuSlZD3MKPt64kpgdxaGRfFen4XdpunSUO0V3ERbmDjsLpBpoUixKav/E3DsA==",
+  "success": true,
+  "projectFilePath": "/Users/malograll/Desktop/Fac/L3/frameworks/MVC/FW-Assessment2/FW-Assessment2/FW-Assessment2.csproj",
+  "expectedPackageFiles": [
+    "/Users/malograll/.nuget/packages/bootstrap/4.6.0/bootstrap.4.6.0.nupkg.sha512",
+    "/Users/malograll/.nuget/packages/fontawesome/4.7.0/fontawesome.4.7.0.nupkg.sha512",
+    "/Users/malograll/.nuget/packages/jquery/3.5.1/jquery.3.5.1.nupkg.sha512",
+    "/Users/malograll/.nuget/packages/popper.js/1.16.1/popper.js.1.16.1.nupkg.sha512"
+  ],
+  "logs": []
+}
