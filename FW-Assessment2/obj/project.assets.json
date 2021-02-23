@@ -336,11 +336,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/malograll/Desktop/Fac/L3/frameworks/MVC/FW-Assessment2/FW-Assessment2/FW-Assessment2.csproj",
+      "projectUniqueName": "/Users/malograll/Desktop/Fac/L3/frameworks/MVC/aspnet-mvc-basic/FW-Assessment2/FW-Assessment2.csproj",
       "projectName": "FW-Assessment2",
-      "projectPath": "/Users/malograll/Desktop/Fac/L3/frameworks/MVC/FW-Assessment2/FW-Assessment2/FW-Assessment2.csproj",
+      "projectPath": "/Users/malograll/Desktop/Fac/L3/frameworks/MVC/aspnet-mvc-basic/FW-Assessment2/FW-Assessment2.csproj",
       "packagesPath": "/Users/malograll/.nuget/packages/",
-      "outputPath": "/Users/malograll/Desktop/Fac/L3/frameworks/MVC/FW-Assessment2/FW-Assessment2/obj/",
+      "outputPath": "/Users/malograll/Desktop/Fac/L3/frameworks/MVC/aspnet-mvc-basic/FW-Assessment2/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/malograll/.config/NuGet/NuGet.Config"

@@ -35,3 +35,12 @@
 /Users/malograll/Desktop/Fac/L3/frameworks/MVC/FW-Assessment2/FW-Assessment2/obj/Debug/netcoreapp3.1/FW-Assessment2.genruntimeconfig.cache
 /Users/malograll/Desktop/Fac/L3/frameworks/MVC/FW-Assessment2/FW-Assessment2/obj/Debug/netcoreapp3.1/FW-Assessment2.csproj.CopyComplete
 /Users/malograll/Desktop/Fac/L3/frameworks/MVC/FW-Assessment2/FW-Assessment2/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs
+/Users/malograll/Desktop/Fac/L3/frameworks/MVC/aspnet-mvc-basic/FW-Assessment2/obj/Debug/netcoreapp3.1/FW-Assessment2.csprojAssemblyReference.cache
+/Users/malograll/Desktop/Fac/L3/frameworks/MVC/aspnet-mvc-basic/FW-Assessment2/obj/Debug/netcoreapp3.1/FW-Assessment2.AssemblyInfoInputs.cache
+/Users/malograll/Desktop/Fac/L3/frameworks/MVC/aspnet-mvc-basic/FW-Assessment2/obj/Debug/netcoreapp3.1/FW-Assessment2.AssemblyInfo.cs
+/Users/malograll/Desktop/Fac/L3/frameworks/MVC/aspnet-mvc-basic/FW-Assessment2/obj/Debug/netcoreapp3.1/FW-Assessment2.csproj.CoreCompileInputs.cache
+/Users/malograll/Desktop/Fac/L3/frameworks/MVC/aspnet-mvc-basic/FW-Assessment2/obj/Debug/netcoreapp3.1/FW-Assessment2.MvcApplicationPartsAssemblyInfo.cache
+/Users/malograll/Desktop/Fac/L3/frameworks/MVC/aspnet-mvc-basic/FW-Assessment2/obj/Debug/netcoreapp3.1/FW-Assessment2.RazorAssemblyInfo.cache
+/Users/malograll/Desktop/Fac/L3/frameworks/MVC/aspnet-mvc-basic/FW-Assessment2/obj/Debug/netcoreapp3.1/FW-Assessment2.RazorAssemblyInfo.cs
+/Users/malograll/Desktop/Fac/L3/frameworks/MVC/aspnet-mvc-basic/FW-Assessment2/obj/Debug/netcoreapp3.1/FW-Assessment2.dll
+/Users/malograll/Desktop/Fac/L3/frameworks/MVC/aspnet-mvc-basic/FW-Assessment2/obj/Debug/netcoreapp3.1/FW-Assessment2.pdb
