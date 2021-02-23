@@ -1,6 +1,6 @@
 ﻿@model FW_Assessment2.Models.TrashBag
 @{
-    String name = Model.Brand + " - " + Model.Volume + "L" + (Model.Compostable ? " - Compostable" : "");
+    String name = Model.Brand.Name + " - " + Model.Volume + "L" + (Model.Compostable ? " - Compostable" : "");
     ViewBag.Title = "Details - " + name;
 }
 
@@ -9,7 +9,7 @@
 <a class="btn btn-primary mb-4" href="@Url.Action("Index", "TrashBags")"><i class="fa fa-arrow-left mr-2"></i>Back to Bags List</a>
 
 <h2>Product ID: <span class="font-weight-light">@Model.Id</span></h2>
-<h2>Brand: <span class="font-weight-light">@Model.Brand</span></h2>
+<h2>Brand: <span class="font-weight-light">@Model.Brand.Name</span></h2>
 <h2>Volume: <span class="font-weight-light">@Model.Volume L</span></h2>
 <h2>Compostable: <span class="font-weight-light">@(Model.Compostable ? "Yes" : "No")</span></h2>
 
@@ -37,7 +37,7 @@
 
                     <div class="form-group">
                         <label for="brand">Brand</label>
-                        <input type="text" class="form-control" id="brand" name="brand" placeholder="Tesco" value="@Model.Brand" required>
+                        <input type="text" class="form-control" id="brand" name="brand" placeholder="Tesco" value="@Model.Brand.Name" required>
                     </div>
                     <div class="form-group">
                         <label for="volume">Volume (liters)</label>

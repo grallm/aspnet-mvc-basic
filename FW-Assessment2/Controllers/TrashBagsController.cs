@@ -10,6 +10,7 @@ namespace FW_Assessment2.Controllers
 {
     public class TrashBagsController : Controller
     {
+        private readonly IBrandRepository _brandRepository = new MockBrandRepository();
         private readonly ITrashBagRepository _trashBagRepository;
 
         public TrashBagsController(ITrashBagRepository trashBagRepository)
@@ -56,16 +57,21 @@ namespace FW_Assessment2.Controllers
         {
             TrashBagViewModel trashBagViewModel = new TrashBagViewModel();
 
-            int id = _trashBagRepository.AllTrashBags().Last().Id + 1;
-            trashBagViewModel.TrashBags = _trashBagRepository.Add(
-                new TrashBag
-                {
-                    Id = id,
-                    Brand = brand,
-                    Volume = volume,
-                    Compostable = compostable == "on"
-                }
-            );
+            // Find the brand
+            Brand brandFound = _brandRepository.AllBrands.ToList().Find(x => x.Name.Equals(brand));
+
+            if (brandFound != null) {
+              int id = _trashBagRepository.AllTrashBags().Last().Id + 1;
+              trashBagViewModel.TrashBags = _trashBagRepository.Add(
+                  new TrashBag
+                  {
+                      Id = id,
+                      Brand = brandFound,
+                      Volume = volume,
+                      Compostable = compostable == "on"
+                  }
+              );
+            }
 
             return RedirectToAction("Index");
         }
@@ -75,13 +81,18 @@ namespace FW_Assessment2.Controllers
         {
             TrashBagViewModel trashBagViewModel = new TrashBagViewModel();
 
-            trashBagViewModel.TrashBags = _trashBagRepository.Update(new TrashBag
-                {
-                    Id = id,
-                    Brand = brand,
-                    Volume = volume,
-                    Compostable = compostable == "on"
-                });
+            // Find the brand
+            Brand brandFound = _brandRepository.AllBrands.ToList().Find(x => x.Name.Equals(brand));
+
+            if (brandFound != null) {
+              trashBagViewModel.TrashBags = _trashBagRepository.Update(new TrashBag
+                  {
+                      Id = id,
+                      Brand = brandFound,
+                      Volume = volume,
+                      Compostable = compostable == "on"
+                  });
+            }
 
             return RedirectToAction("Index");
         }

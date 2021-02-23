@@ -27,8 +27,8 @@ else
         {
 <tr>
     <th scope="row">@bag.Id</th>
-    <td>@Html.ActionLink(bag.Brand + " - " + bag.Volume + "L" + (bag.Compostable ? " - Compostable" : ""), "Details", "TrashBags", new { id = bag.Id }, null)</td>
-    <td>@bag.Brand</td>
+    <td>@Html.ActionLink(bag.Brand.Name + " - " + bag.Volume + "L" + (bag.Compostable ? " - Compostable" : ""), "Details", "TrashBags", new { id = bag.Id }, null)</td>
+    <td>@bag.Brand.Name</td>
     <td>@bag.Volume</td>
     <td>@bag.Compostable</td>
     <td><a class="btn btn-danger mb-4" href="@Url.Action("Delete", "TrashBags", new { id = bag.Id })"><i class="fa fa-times mr-2"></i>Remove</a></td>
