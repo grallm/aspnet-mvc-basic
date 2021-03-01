@@ -6,24 +6,31 @@ namespace FW_Assessment2.Models
 {
     public class MockTrashBagRepository : ITrashBagRepository
     {
-        private static readonly IBrandRepository _brandRepository = new MockBrandRepository();
-
         List<TrashBag> trashBags = new List<TrashBag> {
-            new TrashBag { Id = 1, Brand = _brandRepository.AllBrands.ToList()[1], Volume = 50, Compostable = false },
-            new TrashBag { Id = 2, Brand = _brandRepository.AllBrands.ToList()[1], Volume = 30, Compostable = false },
-            new TrashBag { Id = 3, Brand = _brandRepository.AllBrands.ToList()[1], Volume = 10, Compostable = true },
-            new TrashBag { Id = 4, Brand = _brandRepository.AllBrands.ToList()[0], Volume = 100, Compostable = false },
-            new TrashBag { Id = 5, Brand = _brandRepository.AllBrands.ToList()[0], Volume = 1000, Compostable = true }
+            new TrashBag { Id = 1, BrandId = 1, Volume = 50, Compostable = false },
+            new TrashBag { Id = 2, BrandId = 1, Volume = 30, Compostable = false },
+            new TrashBag { Id = 3, BrandId = 1, Volume = 10, Compostable = true },
+            new TrashBag { Id = 4, BrandId = 1, Volume = 100, Compostable = false },
+            new TrashBag { Id = 5, BrandId = 1, Volume = 1000, Compostable = true }
         };
 
-        public IEnumerable<TrashBag> AllTrashBags()
+        private readonly TrashBagsContext _context;
+
+        public MockTrashBagRepository(TrashBagsContext context)
         {
+            _context = context;
+        }
+
+        public  IEnumerable<TrashBag> AllTrashBags()
+        {
+            List<TrashBag> trashBags =  _context.TrashBags.ToList();
             return trashBags;
         }
 
-        public TrashBag GetTrashBagById(int Id)
+        public TrashBag GetTrashBagById(int id)
         {
-            return trashBags.FirstOrDefault(t => t.Id == Id);
+            TrashBag trashBag = _context.TrashBags.FirstOrDefault(b => b.Id == id);
+            return trashBag;
         }
 
         // Remove a bag

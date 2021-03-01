@@ -5,6 +5,7 @@ namespace FW_Assessment2.Models
 {
     public interface IBrandRepository
     {
-        IEnumerable<Brand> AllBrands { get; }
+        IEnumerable<Brand> AllBrands();
+        Brand GetBrandById(int id);
     }
 }

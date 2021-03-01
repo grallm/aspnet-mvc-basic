@@ -4,8 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using FW_Assessment2.Models;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,12 +29,35 @@ namespace FW_Assessment2
         {
             services.AddControllersWithViews();
 
+            services.AddDbContext<TrashBagsContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+            );
+
+            // services.AddDbContext<TrashBagsContext>(options =>
+            //     options.UseSqlServer(
+            //         Configuration.GetConnectionString("DefaultConnection")));
+
+            // services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            //     .AddEntityFrameworkStores<TrashBagsContext>();
+
             services.AddScoped<ITrashBagRepository, MockTrashBagRepository>(); //register our own services
+            services.AddScoped<IBrandRepository, MockBrandRepository>();
+            
+            // services.AddControllersWithViews();
+            // services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            // Delete Databsae and Run Migrations on Startup
+            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetRequiredService<TrashBagsContext>();
+                context.Database.EnsureDeleted(); // Ensure Database is Deleted
+                context.Database.Migrate(); // Run Migrations
+            }
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

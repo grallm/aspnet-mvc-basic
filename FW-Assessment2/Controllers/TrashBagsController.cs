@@ -10,12 +10,13 @@ namespace FW_Assessment2.Controllers
 {
     public class TrashBagsController : Controller
     {
-        private readonly IBrandRepository _brandRepository = new MockBrandRepository();
         private readonly ITrashBagRepository _trashBagRepository;
+        private readonly IBrandRepository _brandRepository;
 
-        public TrashBagsController(ITrashBagRepository trashBagRepository)
+        public TrashBagsController(ITrashBagRepository trashBagRepository, IBrandRepository brandRepository)
         {
             _trashBagRepository = trashBagRepository;
+            _brandRepository = brandRepository;
         }
 
         // Trash bags home with bags list
@@ -34,13 +35,13 @@ namespace FW_Assessment2.Controllers
         }
 
         // Put back all default bags
-        public ActionResult Reset()
+        /* public ActionResult Reset()
         {
             TrashBagViewModel trashBagViewModel = new TrashBagViewModel();
             trashBagViewModel.TrashBags = new MockTrashBagRepository().AllTrashBags();
 
             return RedirectToAction("Index");
-        }
+        } */
 
         // Remove a bag
         public ActionResult Delete(int id)
@@ -58,7 +59,7 @@ namespace FW_Assessment2.Controllers
             TrashBagViewModel trashBagViewModel = new TrashBagViewModel();
 
             // Find the brand
-            Brand brandFound = _brandRepository.AllBrands.ToList().Find(x => x.Name.Equals(brand));
+            Brand brandFound = _brandRepository.AllBrands().ToList().Find(x => x.Name.Equals(brand));
 
             if (brandFound != null) {
               int id = _trashBagRepository.AllTrashBags().Last().Id + 1;
@@ -82,7 +83,7 @@ namespace FW_Assessment2.Controllers
             TrashBagViewModel trashBagViewModel = new TrashBagViewModel();
 
             // Find the brand
-            Brand brandFound = _brandRepository.AllBrands.ToList().Find(x => x.Name.Equals(brand));
+            Brand brandFound = _brandRepository.AllBrands().ToList().Find(x => x.Name.Equals(brand));
 
             if (brandFound != null) {
               trashBagViewModel.TrashBags = _trashBagRepository.Update(new TrashBag

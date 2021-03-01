@@ -6,11 +6,23 @@ namespace FW_Assessment2.Models
 {
     public class MockBrandRepository : IBrandRepository
     {
-        public IEnumerable<Brand> AllBrands =>
-        new List<Brand>
+        private readonly TrashBagsContext _context;
+
+        public MockBrandRepository(TrashBagsContext context)
         {
-            new Brand{Id=1, Name="Killeen"},
-            new Brand{Id=2, Name="Tesco" }
-        };
+            _context = context;
+        }
+
+        public  IEnumerable<Brand> AllBrands()
+        {
+            List<Brand> myBrands =  _context.Brands.ToList();
+            return myBrands;
+        }
+
+        public Brand GetBrandById(int id)
+        {
+            Brand brand = _context.Brands.FirstOrDefault(b => b.BrandId == id);
+            return brand;
+        }
     }
 }
